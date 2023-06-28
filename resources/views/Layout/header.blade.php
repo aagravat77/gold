@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="{{ route('/index') }}">
-      <img src="web_images/weblogo.png" alt="Avatar Logo" style="width:50px;" class="rounded-pill"> 
+      <img src="{{asset('web_images/weblogo.png')}}" alt="Avatar Logo" style="width:50px;" class="rounded-pill"> 
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
       <span class="navbar-toggler-icon"></span>

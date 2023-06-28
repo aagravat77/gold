@@ -1,9 +1,9 @@
  <title>Gold Hallmarking Management System</title>
-<link rel="icon" type="image/gif/png" href="web_images/title_image.png">
+<link rel="icon" type="image/gif/png" href="{{asset('web_images/title_image.png')}}">
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-            <img src="web_images/weblogo.png" alt="Avatar Logo" style="width:50px;" class="rounded-pill">
+        <a class="navbar-brand" href="{{ route('home') }}">
+            <img src="{{asset('web_images/weblogo.png')}}" alt="Avatar Logo" style="width:50px;" class="rounded-pill">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
             <span class="navbar-toggler-icon"></span>
@@ -28,8 +28,11 @@
                     }
                     display_c6()
                 </script>
-                <span id='ct6' style="background-color: #eedf0a"></span>
+                <span id='ct6' style="color: #eedf0a"></span>&nbsp;
 
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ route('home') }}">Dashboard</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('/admin_user') }}">Users</a>
                 </li>
@@ -37,10 +40,13 @@
                     <a class="nav-link" href="{{ route('/contact') }}">Contact Data</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="{{ route('/party_data') }}">Party Detail</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="{{ route('/order') }}">Orders</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Payment</a>
+                    <a class="nav-link" href="{{ route('/payment') }}">Payment</a>
                 </li>
 
                 @guest
@@ -60,7 +66,7 @@
 
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                             <img src="web_images/Admin.png" alt="hugenerd" width="30" height="30" class="rounded-circle">
+                             <img src="{{asset('web_images/Admin.png')}}" alt="hugenerd" width="30" height="30" class="rounded-circle">
                             {{ Auth::user()->name }}
                         </a>
                         

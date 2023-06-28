@@ -12,9 +12,6 @@
 <body>
    
     
-        <br>
-        <br>
-
         <style>
             body {
                 background-color: #d8d2c2;
@@ -73,7 +70,7 @@
         <div class="container">
             <div class="row justify-content-center ">
                 <div class="col-lg-4 col-md-6 col-sm-8 col-xs-12 ">
-                    <form class="form-container bg-light" method="POST" action="+">
+                    <form method="POST" action="{{route('edituser_post')}}" class="form-container bg-light">
                         @csrf
                         <center>
                             <input type="hidden" name="email" value="{{Auth::user()->id}}">
@@ -108,8 +105,8 @@
                         </div>
 
                         <div class="d-grid gap-2">
-                            <button type="submit" class="btn btn-primary">
-                                {{ __('Edit Profile') }}
+                            <button value="Edit Profile" type="submit" class="btn btn-primary">
+                              Edit Profile
                             </button>
                             <hr>
 

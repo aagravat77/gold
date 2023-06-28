@@ -13,6 +13,7 @@
 
     <title>Register | Gold Hallmarking Management System</title>
     <link rel="icon" type="image/gif/png" href="web_images/title_image.png">
+    
 
 </head>
 

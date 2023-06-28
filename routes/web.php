@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/welcome', function () {
     return view('welcome');
-})->name('/index');
+});
 
 
 Route::get('/', function () {
@@ -45,32 +45,89 @@ Auth::routes([
 
 //For User
 Route::middleware(['auth', 'is_user'])->group(function () {
-    Route::get('moj', function () {
-        echo 'this is a moj';
-    });
-    Route::get('Profile_user', [UserController::class, 'user_profile'])->name('user.profile');
-    Route::post('change_post', [UserController::class, 'user_profile_post'])->name('user.post_profile');
+    //profile
+    Route::get('Profile_user', [UserController::class, 'user_profile'])->name('User/profile_user');
+    Route::post('change_post_user', [UserController::class, 'user_profile_post'])->name('edituser_post');
+    //password
     Route::get('User_changepassword', [UserController::class, 'change_password'])->name('change_pass');
-    Route::post('Change_pass_post', [UserController::class, 'change_password_post'])->name('user.change-pass');
-    Route::post('order', [UserController::class, 'order'])->name('user.order');
+    Route::post('Change_pass_post_user', [UserController::class, 'change_password_post'])->name('user.change-pass');
+    Route::post('party_detail', [UserController::class, 'party_detail'])->name('user.party_detail');
+    Route::view('user_after_party_wait','User.user_after_party');
+    Route::view('user_party', 'User.user_company');
+    Route::view('user_party_done', 'User.user_after_party_done');
+    Route::post('order_form_', [UserController::class, 'order'])->name('user.order');
+    Route::get('user_order_form', [UserController::class, 'order_form'])->name('user.order_form');
+    Route::get('user_order_data', [UserController::class, 'order_data'])->name('user.order_data');
+
+    Route::get('pdf_view/{id}', [UserController::class, 'pdf_view'])->name('user.order_data_pdf');
+    Route::get('payment/{id}', [UserController::class, 'payment'])->name('user.payment');
+    Route::post('payment_post', [UserController::class, 'payment_post'])->name('user.payment_post');
+    Route::get('user_pay_data', [UserController::class, 'pay_data'])->name('user.party_data');
+    
+    Route::get('pdf_payment/{id}', [UserController::class, 'Payment_view_user'])->name('user.order_data_pdf');
+
+
+
+
+
+
+
+
 
 });
 
 //For Admin
 Route::middleware(['auth', 'is_admin'])->group(function () {
-    Route::get('8754', function () {
-        echo 'this is a first';
-    });
+    
     Route::get('Profile_admin', [AdminController::class, 'admin_profile'])->name('admin.profile');
-    Route::post('change_post', [AdminController::class, 'admin_profile_post'])->name('admin.post_profile');
+    Route::post('change_post_admin_profile', [AdminController::class, 'admin_profile_post'])->name('admin.post_profile');
+
+
+    Route::post('change_post_user_data', [AdminController::class, 'admin_user_profile_post'])->name('admin.post_user_profile');
+
     Route::get('Admin_changepassword', [AdminController::class, 'change_password'])->name('admin.change_pass');
     Route::post('Change_pass_post', [AdminController::class, 'change_password_post'])->name('admin.change-pass-post');
     Route::get('adminusers', [AdminController::class, 'index'])->name('/admin_user');
     Route::get('contact_data', [AdminController::class, 'contactdata'])->name('/contact');
+    Route::get('party_data_show', [AdminController::class, 'party_show'])->name('/party_data');
+    Route::get('approve_party/{id}', [AdminController::class, 'party_approve']);
+    Route::get('edit_party/{id}', [AdminController::class, 'edit_party'])->name('party_edit');
+    Route::post('edit_party_post', [AdminController::class, 'edit_party_post'])->name('admin.party_edit');
+
+
+    Route::get('party_delete/{id}', [AdminController::class, 'party_delete']);
+
     Route::get('delete/{id}', [AdminController::class, 'delete']);
     Route::get('deletecon/{id}', [AdminController::class, 'deletecon']);
     Route::get('edit/{id}', [AdminController::class, 'edit']);
     Route::get('order_data', [AdminController::class, 'order'])->name('/order');
+    Route::get('edit_order/{id}', [AdminController::class, 'edit_order'])->name('order_edit');
+    Route::get('order_done/{id}', [AdminController::class, 'order_done'])->name('order_done');
+    Route::post('order_done_edit', [AdminController::class, 'order_done_post'])->name('admin.order_edit_done');
+
+    Route::post('edit_order_post', [AdminController::class, 'edit_order_post'])->name('admin.order_edit');
+
+    Route::get('delete_order/{id}', [AdminController::class, 'order_delete']);
+
+    Route::get('payment_data', [AdminController::class, 'payment'])->name('/payment');
+
+
+    Route::get('excel_user', [AdminController::class, 'getExcelUser'])->name('admin_download_user');
+    Route::get('excel_contact', [AdminController::class, 'getExcelContact'])->name('admin_download_contact');
+    Route::get('excel_party', [AdminController::class, 'getExcelParty'])->name('admin_download_party');
+    Route::get('excel_order', [AdminController::class, 'getExcelOrder'])->name('admin_download_order');
+
+
+    Route::get('pdf_view_admin/{id}', [AdminController::class, 'pdf_view'])->name('admin.order_data_pdf');
+
+    Route::get('/action', [AdminController::class, 'action'])->name('action');
+    Route::get('option_active', [AdminController::class, 'active_option'])->name('Aactive_op');
+
+
+
+
+
+
 
     
 });

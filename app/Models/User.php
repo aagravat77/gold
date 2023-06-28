@@ -8,7 +8,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Model;
-
+use DB;
+use Illuminate\Support\Facades\DB as FacadesDB;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -45,4 +46,11 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public static function getAllUser()
+    {
+        $result = FacadesDB::table('users')
+        ->select('id','name','number','email', 'repeat_password', 'role', 'status')->get()->toArray();
+
+        return $result;
+    }
 }

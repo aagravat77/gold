@@ -35,12 +35,23 @@
             </main>
         </div>
 
-            
-                <div class="col py-3">
-                    <h1>MANAGE contact</h1><BR></BR>
-                    <div class="table-responsive-sm">
+        <div class="col py-3">
+
+            <div class="card text-center shadow p-0 mb-5 bg-body rounded">
+                <div class="card-header">
+                    <h2><i class="bi bi-chat-left-dots-fill"></i> Manage Contact</h2>
+                </div>
+                <div class="card">
+                    <div class="badge  text-wrap" style="width: 13rem;">
+                        <a href="{{route('admin_download_contact')}}">
+                        <button type="submit" class="btn btn-outline-danger"><i class="bi bi-download"></i>&nbsp; Download
+                            Excel File</button>
+                            </a>
+                    </div>
+
+                    <div class="table-responsive-sm p-2 bg-light border">
                         <table class="table table-bordered">
-                            <thead class="table-success">
+                            <thead class="table table-info table-striped">
                                 <tr>
                                     <th scope="col">Name</th>
                                     <th scope="col">Email</th>
@@ -60,7 +71,7 @@
                                     <td>{{ $data->message }}</td>
                                     <td>
 
-                                        <a href="edit/{{ $data->id }}">
+                                        <a href="#">
                                             <input type="submit" name="submit" value="Edit" class="btn btn-primary">
                                         </a>
 
@@ -71,16 +82,14 @@
                                         </a>
                                     </td>
                                     @endforeach
-                                    <script>
-                                        $('#ordersubmitform').submit(function() {
-                                            $('input[type=submit]').addClass("disabled");
-                                        });
-                                    </script>
                                 </tr>
                             </tbody>
                         </table>
-                    </div><br><br><br><br><br>
-                   
+                    </div>
+                    <br><br><br>
+                </div>
+            </div>
+        </div>
 
 
 

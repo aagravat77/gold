@@ -22,45 +22,115 @@
     </head>
 
     <body>
-        <div class="container">
+        {{-- <div class="container">
             <center>
                 @include('flash-message')
             </center>
-        </div>
+        </div> --}}
 
         <div id="app">
 
             <main class="py-1">
                 @yield('Admin_section')
             </main>
-        </div>
-
-        
-                <div class="col py-3">
 
 
-                    <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
-                        <div class="card-header">Active Users</div>
-                        <div class="card-body">
-                            <h1 class="card-title"> {{$users}} </h1>
-        
 
+            <div class="container">
+                <div class="row row-cols-7 row-cols-md-5">
+                    <div class="col">
+                        <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+                            <center>
+                                <div class="card-header">Active Users</div>
+                            </center>
+                            <div class="card-body">
+                                <center>
+                                    <h1 class="card-title">{{$users}}</h1>
+                                </center>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div class="col">
+                        <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+                            <center>
+                                <div class="card-header">Total Orders</div>
+                            </center>
+                            <div class="card-body">
+                                <center>
+                                    <h1 class="card-title">{{$orders}}</h1>
+                                </center>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+                            <center>
+                                <div class="card-header">Pending Orders</div>
+                            </center>
+                            <div class="card-body">
+                                <center>
+                                    <h1 class="card-title">{{$orders_pending}}</h1>
+                                </center>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="col">
+                        <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+                            <center>
+                                <div class="card-header">Complete Orders</div>
+                            </center>
+                            <div class="card-body">
+                                <center>
+                                    <h1 class="card-title">{{$orders_complete}}</h1>
+                                </center>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col">
+                        <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+                            <center>
+                                <div class="card-header">Payment Complete</div>
+                            </center>
+                            <div class="card-body">
+                                <center>
+                                    <h1 class="card-title">{{$pay}}</h1>
+                                </center>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+                            <center>
+                                <div class="card-header">Center Id</div>
+                            </center>
+                            <div class="card-body">
+                                <center>
+                                    <h4 class="card-title">AGR7214AVAT99</h4>
+                                </center>
+                            </div>
                         </div>
                     </div>
 
                 </div>
-
             </div>
+
+
+
         </div>
 
-        <script>
-            $( '#topheader .navbar-nav a' ).on( 'click', function () {
-	$( '#topheader .navbar-nav' ).find( 'li.active' ).removeClass( 'active' );
-	$( this ).parent( 'li' ).addClass( 'active' );
-});
-        </script>
+
 
     </body>
 
     </html>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 @endsection

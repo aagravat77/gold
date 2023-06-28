@@ -19,7 +19,7 @@
             <div class="container py-5">
 
                 <div class="row align-items-center">
-                    <div class="col-lg-5 px-5 mx-auto"><img src="https://arsigakonics.org/gif-images/about-us.gif"
+                    <div class="col-lg-5 px-5 mx-auto"><img src="web_images/about-us.gif"
                             alt="" class="img-fluid mb-4 mb-lg-0"></div>
                     <div class="col-lg-6"><i class="fa fa-leaf fa-2x mb-3 text-primary"></i>
                         <h1 class="font-weight-light">About Us</h1>
@@ -46,7 +46,7 @@
             <div class="row">
                 <div class="col-sm-4">
                     <h4>TEAM WORK</h4>
-                    <img src="https://p.turbosquid.com/ts-thumb/f9/ULYKqX/aM/offshore_pack_search/jpg/1674503484/300x300/sharp_fit_q85/7f121437f30fa44a08a9402a9e725e9ad3f9af0c/offshore_pack_search.jpg"
+                    <img src="web_images/1.png"
                         alt="" class="img-fluid">
                     <p> teamwork is essential for the success of the gold hallmarking management system. Our team is made up
                         of individuals with different skills and expertise, working together to provide a reliable and
@@ -63,7 +63,7 @@
                 </div>
                 <div class="col-sm-4">
                     <h4>TRUST</h4>
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSALzRBh6xTn7F-amDQfmTL6rcqzSZPffEFbg&usqp=CAU"
+                    <img src="web_images/2.png"
                         class="img-fluid"><br><br>
                     <p>Trust is essential for any business, and it is especially important in the gold hallmarking
                         industry.we understand the importance of building trust with our customers.Our commitment to ethical

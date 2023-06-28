@@ -15,20 +15,20 @@
 
         <link rel="dns-prefetch" href="//fonts.gstatic.com">
         <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-        <title>Admin | Gold Hallmarking Management System</title>
-        <link rel="icon" type="image/gif/png" href="web_images/title_image.png">
+        {{-- <title>Admin | Gold Hallmarking Management System</title>
+        <link rel="icon" type="image/gif/png" href="web_images/title_image.png"> --}}
         <!-- Scripts -->
         {{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
     </head>
 
     <body>
-        
 
-       
 
-        
 
-       <br>
+
+
+
+        <br>
         <br>
 
         <style>
@@ -80,7 +80,7 @@
                 background-color: #FF8D6B;
             }
         </style>
- <div class="container">
+        <div class="container">
             <center>
                 @include('flash-message')
             </center>
@@ -89,74 +89,77 @@
         <div class="container">
             <div class="row justify-content-center ">
                 <div class="col-lg-4 col-md-6 col-sm-8 col-xs-12 ">
-                     @foreach ($data as $item)
-                    <form class="form-container bg-light" method="POST" action="{{ route('admin.post_profile') }}">
-                        @csrf
-                        <center>
-                            <input type="hidden" name="id" value="{{$item->id}}">
-                            <img src="https://img.freepik.com/premium-vector/head-lion-gold-logo_177315-80.jpg?w=2000"
-                                alt="Avatar Logo" style="width:200px;" class="rounded-circle">
+                    @foreach ($data as $item)
+                        <form class="form-container bg-light" method="POST" action="{{ route('admin.post_user_profile') }}">
+                            @csrf
+                            <center>
+                                <input type="hidden" name="id" value="{{ $item->id }}">
+                                <img src="https://img.freepik.com/premium-vector/head-lion-gold-logo_177315-80.jpg?w=2000"
+                                    alt="Avatar Logo" style="width:200px;" class="rounded-circle">
 
-                        </center>
-                        <h1>Edit Profile</h1>
+                            </center>
+                            <h1>Edit Profile</h1>
 
-                        <div class="mb-3 ">
-                            <label for="email">Name</label>
-                            <input id="email" type="text" class="form-control @error('name') is-invalid @enderror"
-                                name="name" value="{{$item->name}}"  autofocus>
+                            <div class="mb-3 ">
+                                <label for="email">Name</label>
+                                <input id="email" type="text"
+                                    class="form-control @error('name') is-invalid @enderror" name="name"
+                                    value="{{ $item->name }}" autofocus>
 
-                            @error('name')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
+                                @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
 
-                        <div class="mb-3">
-                            <label for="password">Number</label>
-                            <input id="password" type="number"
-                                class="form-control @error('number') is-invalid @enderror" name="number" value="{{$item->number}}">
+                            <div class="mb-3">
+                                <label for="password">Number</label>
+                                <input id="password" type="number"
+                                    class="form-control @error('number') is-invalid @enderror" name="number"
+                                    value="{{ $item->number }}">
 
-                            @error('number')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
+                                @error('number')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
 
-                        <div class="mb-3">
-                            <label for="password">Email</label>
-                            <input id="password" type="email"
-                                class="form-control @error('email') is-invalid @enderror" name="email" value="{{$item->email}}">
+                            <div class="mb-3">
+                                <label for="password">Email</label>
+                                <input id="password" type="email"
+                                    class="form-control @error('email') is-invalid @enderror" name="email"
+                                    value="{{ $item->email }}">
 
-                            @error('email')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="password">Status</label>
-                            <input id="password" type="text"
-                                class="form-control @error('sts') is-invalid @enderror" name="sts" value="{{$item->status}}">
-
-                            @error('sts')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-
-                        <div class="d-grid gap-2">
-                            <button type="submit" class="btn btn-primary">
-                                {{ __('Edit Profile') }}
-                            </button>
-                            <hr>
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
 
                             
-                        </div>
-@endforeach
+
+                            <div class="mb-3">
+                                <label for="password">Status</label>
+                                <select name="status" class="form-select" aria-label="Default select example">
+                                    <option value="Active" {{ $item->status == 'Active' ? 'selected' : '' }}>Active
+                                    </option>
+                                    <option value="Deactive" {{ $item->status == 'Deactive' ? 'selected' : '' }}>Deactive
+                                    </option>
+                                </select>
+                            </div>
+
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-primary">
+                                    {{ __('Edit Profile') }}
+                                </button>
+                                <hr>
+
+
+                            </div>
+                    @endforeach
                     </form>
                 </div>
             </div>

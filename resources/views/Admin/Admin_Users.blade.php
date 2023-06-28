@@ -35,13 +35,45 @@
             </main>
         </div>
 
-            
-                <div class="col py-3">
-                    <h1>MANAGE USERS</h1><BR></BR>
-                    <div class="table-responsive-sm">
+        <div class="col py-3">
+
+            <div class="card text-center shadow p-0 mb-5 bg-body rounded">
+                <div class="card-header">
+                    <h2><i class="bi bi-people-fill"></i> Manage Users</h2>
+                </div>
+                <div class="card">
+
+                        <div class="col-md-2">
+                            <div class="badge  text-wrap" style="width: 13rem;">
+                                <a href="{{ route('admin_download_user') }}">
+                                    <button type="submit" class="btn btn-outline-danger"><i
+                                            class="bi bi-download"></i>&nbsp;
+                                        Download Excel File
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <div class="badge  text-wrap" style="width: 13rem;">
+                                <select name="cat" class="form-select" aria-label="Default select example">
+                                    <a href="">
+                                        <option selected value="All">All</option>
+                                    </a>
+                                    <a href="{{ route('Aactive_op') }}">
+                                        <option value="Active">Active</option>
+                                    </a>
+                                    <option value="Deactive">Deactive</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+
+                    <div class="table-responsive-sm p-2 bg-light border">
                         <table class="table table-bordered">
-                            <thead class="table-success">
+                            <thead class="table table-info table-striped">
                                 <tr>
+                                    <th scope="col">Id</th>
                                     <th scope="col">Name</th>
                                     <th scope="col">Number</th>
                                     <th scope="col">Email</th>
@@ -61,6 +93,7 @@
 
                             <tbody>
                                 <tr>
+                                    <th scope="row">{{ $data->id }}</th>
                                     <th scope="row">{{ $data->name }}</th>
                                     <td>{{ $data->number }}</td>
                                     <td>{{ $data->email }}</td>
@@ -84,16 +117,15 @@
                                         </a>
                                     </td>
                                     @endforeach
-                                    <script>
-                                        $('#ordersubmitform').submit(function() {
-                                            $('input[type=submit]').addClass("disabled");
-                                        });
-                                    </script>
                                 </tr>
                             </tbody>
                         </table>
-                    </div><br><br><br><br><br>
-                   
+                    </div>
+                    <br><br><br>
+                </div>
+            </div>
+        </div>
+
 
 
 

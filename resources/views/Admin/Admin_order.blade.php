@@ -35,24 +35,35 @@
             </main>
         </div>
 
-            
-                <div class="col py-3">
-                    <h1>MANAGE contact</h1><BR></BR>
-                    <div class="table-responsive-sm">
+        <div class="col py-3">
+
+            <div class="card text-center shadow p-0 mb-5 bg-body rounded">
+                <div class="card-header">
+                    <h2><i class="bi bi-cart-check-fill"></i> Manage Order</h2>
+                </div>
+                <div class="card">
+                    <div class="badge  text-wrap" style="width: 13rem;">
+                        <a href="{{ route('admin_download_order') }}">
+                            <button type="submit" class="btn btn-outline-danger"><i class="bi bi-download"></i>&nbsp;
+                                Download
+                                Excel File</button>
+                        </a>
+                    </div>
+
+                    <div class="table-responsive-sm p-2 bg-light border">
                         <table class="table table-bordered">
-                            <thead class="table-success">
+                            <thead class="table table-info table-striped">
                                 <tr>
+                                    <th scope="col">party Name</th>
+                                    <th scope="col">item id</th>
                                     <th scope="col">item name</th>
                                     <th scope="col">item price</th>
                                     <th scope="col">item quantity</th>
-                                    <th scope="col">Party name</th>
+                                    <th scope="col">item weight</th>
+                                    <th scope="col">item image</th>
                                     <th scope="col">date</th>
-                                    <th scope="col">address</th>
                                     <th scope="col">status</th>
-
-
-                                    <th scope="col">Edit</th>
-                                    <th scope="col">Delete</th>
+                                    <th scope="col">Action</th>
 
 
                                     @foreach ($users as $data)
@@ -61,38 +72,54 @@
 
                             <tbody>
                                 <tr>
-                                    <th scope="row">{{ $data->itemname}}</th>
-                                    <td>{{ $data->itemprice }}</td>
-                                    <td>{{ $data->itemquantity }}</td>
-                                    <td>{{ $data->partyname }}</td>
+                                    <td>{{ $data->party_name }}</td>
+                                    <th scope="row">{{ $data->item_id }}</th>
+                                    <td>{{ $data->item_name }}</td>
+                                    <td>{{ $data->item_price }}</td>
+                                    <td>{{ $data->item_quantity }}</td>
+                                    <td>{{ $data->item_weight }}</td>
+                                    <td><img src="{{ asset('public/order_item_image/' . $data->item_image) }}"width="120px"
+                                            hight="120px" class="rounded-0" /></td>
                                     <td>{{ $data->date }}</td>
-                                    <td>{{ $data->address }}</td>
                                     <td>{{ $data->status }}</td>
 
 
-                                    <td>
+                                    <td> 
 
-                                        <a href="edit/{{ $data->id }}">
-                                            <input type="submit" name="submit" value="Edit" class="btn btn-primary">
-                                        </a>
+                                        <a href="pdf_view_admin/{{ $data->item_id }}" target="_blank">
+                                            <button type="submit" name="submit" value="Pdf" class="btn btn-danger"><i
+                                                    class="bi bi-file-earmark-pdf-fill"></i> Pdf</button>
+                                        </a> &nbsp;&nbsp;&nbsp;
 
-                                    </td>
-                                    <td>
-                                        <a href="deletecon/{{ $data->id }}">
-                                            <input type="submit" name="submit" value="Delete" class="btn btn-danger">
-                                        </a>
+                                        @if ($data->status == 'Not Approved')
+                                            <a href="order_done/{{ $data->item_id }}">
+                                                <input type="submit" name="submit" value="Done" class="btn btn-success">
+                                            </a>
+                                            &nbsp;&nbsp;
+
+                                            <a href="edit_order/{{ $data->item_id }}">
+                                                <input type="submit" name="submit" value="Edit" class="btn btn-primary">
+                                            </a>
+                                            &nbsp;&nbsp;
+
+                                            <a href="delete_order/{{ $data->item_id }}">
+                                                <input type="submit" name="submit" value="Delete" class="btn btn-danger">
+                                            </a>
+                                        @else
+                                        &nbsp;
+                                            <input type="submit" name="submit" value="Complete" disabled
+                                                class="btn btn-success">
+                                        @endif
                                     </td>
                                     @endforeach
-                                    <script>
-                                        $('#ordersubmitform').submit(function() {
-                                            $('input[type=submit]').addClass("disabled");
-                                        });
-                                    </script>
                                 </tr>
                             </tbody>
                         </table>
-                    </div><br><br><br><br><br>
-                   
+                    </div>
+                    <br><br><br>
+                </div>
+            </div>
+        </div>
 
 
 

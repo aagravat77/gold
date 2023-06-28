@@ -176,7 +176,7 @@
                     <div class="col">
                         <div class="p-3 border bg-light">
                             <div class="containera">
-                                <img src="https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/816ggGlMPkL._UL1500_.jpg"
+                                <img src="https://images.meesho.com/images/products/28754016/xiiu5_512.webp"
                                     alt="" class="img-fluid image">
                                 <div class="overlay">
                                     <div class="text">Women Jewellery</div>
